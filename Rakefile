@@ -9,7 +9,7 @@ end
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name        = "mattmatt-validatable"
+  gem.name        = "validatable"
   gem.summary     = %Q{Validatable is a library for adding validations.}
   gem.description = %Q{Validatable is a library for adding validations.}
   gem.email       = "meyer@paperplanes.de"
