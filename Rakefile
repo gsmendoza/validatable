@@ -1,18 +1,22 @@
 require 'rubygems'
 require 'rake'
 
-require File.dirname(__FILE__) + '/lib/validatable'
+def version
+  found_version = nil
+  File.read('lib/validatable.rb').each{|line| line =~ /\s*Version\s*=\s*'(([0-9]\.?)+)'/ && break}
+  $1
+end
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name        = "jnunemaker-validatable"
+  gem.name        = "mattmatt-validatable"
   gem.summary     = %Q{Validatable is a library for adding validations.}
   gem.description = %Q{Validatable is a library for adding validations.}
-  gem.email       = "nunemaker@gmail.com"
-  gem.homepage    = "http://github.com/jnunemaker/validatable"
+  gem.email       = "meyer@paperplanes.de"
+  gem.homepage    = "http://github.com/mattmatt/validatable"
   gem.authors     = ['Jay Fields', 'John Nunemaker']
   gem.files       = FileList['lib/**/*.rb', '[A-Z]*', 'test/**/*'].to_a
-  gem.version     = Validatable::Version
+  gem.version     = version
 end
 
 Jeweler::GemcutterTasks.new

@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{jnunemaker-validatable}
+  s.name = %q{mattmatt-validatable}
   s.version = "1.8.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jay Fields", "John Nunemaker"]
-  s.date = %q{2010-03-01}
+  s.date = %q{2010-04-19}
   s.description = %q{Validatable is a library for adding validations.}
-  s.email = %q{nunemaker@gmail.com}
+  s.email = %q{meyer@paperplanes.de}
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -69,7 +69,7 @@ Gem::Specification.new do |s|
      "test/unit/test_validates_true_for.rb",
      "test/unit/test_validation_base.rb"
   ]
-  s.homepage = %q{http://github.com/jnunemaker/validatable}
+  s.homepage = %q{http://github.com/mattmatt/validatable}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
