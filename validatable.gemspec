@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{validatable}
-  s.version = "1.8.3"
+  s.version = "1.8.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jay Fields", "John Nunemaker"]
-  s.date = %q{2010-04-19}
+  s.date = %q{2010-04-28}
   s.description = %q{Validatable is a library for adding validations.}
   s.email = %q{meyer@paperplanes.de}
   s.extra_rdoc_files = [
@@ -72,7 +72,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/mattmatt/validatable}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Validatable is a library for adding validations.}
   s.test_files = [
     "test/functional/test_validatable.rb",

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jay Fields", "John Nunemaker"]
-  s.date = %q{2010-04-19}
+  s.date = %q{2010-04-28}
   s.description = %q{Validatable is a library for adding validations.}
   s.email = %q{meyer@paperplanes.de}
   s.extra_rdoc_files = [
