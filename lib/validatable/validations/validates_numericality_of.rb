@@ -15,6 +15,10 @@ module Validatable
     def message(instance)
       super || "must be a number"
     end
+
+    def i18n
+      super || "#{i18n_prefix}.not_a_number"
+    end
     
     private
       def value_for(instance)

@@ -48,5 +48,5 @@ Expectations do
     options = {:message => nil, :if => nil, :times => nil, :level => nil, :groups => nil, :key => nil}
     Validatable::ValidationBase.new(stub_everything, :base).must_understand(options)
   end
-
+  
 end

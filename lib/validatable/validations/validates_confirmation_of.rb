@@ -19,5 +19,9 @@ module Validatable
     def message(instance)
       super || "doesn't match confirmation"
     end
+    
+    def i18n
+      super || "#{i18n_prefix}.confirmation"
+    end
   end
 end

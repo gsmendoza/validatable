@@ -9,5 +9,9 @@ module Validatable
     def message(instance)
       super || "is invalid"
     end
+    
+    def i18n
+      super || "#{i18n_prefix}true"
+    end
   end
 end

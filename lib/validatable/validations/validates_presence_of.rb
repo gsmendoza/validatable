@@ -12,6 +12,10 @@ module Validatable
     def message(instance)
       super || "can't be empty"
     end
+    
+    def i18n
+      super || "#{i18n_prefix}.blank"
+    end
   end
 end
 
