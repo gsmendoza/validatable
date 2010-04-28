@@ -15,7 +15,7 @@ module Validatable
     end
     
     def i18n
-      super || "#{i18n_prefix}inclusion"
+      super || "#{i18n_prefix}.inclusion"
     end
   end
 end

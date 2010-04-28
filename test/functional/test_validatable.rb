@@ -534,7 +534,4 @@ functional_tests do
     Validatable.use_i18n = false
   end
   
-  test "should return the default message if i18n is enabled but key isn't found" do
-  end
-  
 end

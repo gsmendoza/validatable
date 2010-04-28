@@ -11,7 +11,7 @@ module Validatable
     end
     
     def i18n
-      super || "#{i18n_prefix}true"
+      super || "#{i18n_prefix}.true"
     end
   end
 end
