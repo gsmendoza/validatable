@@ -39,7 +39,7 @@ module Validatable
     include Understandable
     include Requireable
     
-    option :message, :if, :times, :level, :groups, :key, :after_validate, :allow_nil, :allow_blank
+    option :message, :if, :times, :level, :groups, :key, :after_validate, :allow_nil, :allow_blank, :i18n
     default :level => 1, :groups => []
     attr_accessor :attribute
     
@@ -71,9 +71,21 @@ module Validatable
       end
       result
     end
+   
+    def i18n
+      @i18n
+    end
+    
+    def i18n_prefix
+      "validatable"
+    end
     
     def message(instance)
-      @message.respond_to?(:call) ? instance.instance_eval(&@message) : @message
+      if Validatable.use_i18n?
+        i18n
+      else
+        @message.respond_to?(:call) ? instance.instance_eval(&@message) : @message
+      end
     end
     
     def validate_this_time?(instance)

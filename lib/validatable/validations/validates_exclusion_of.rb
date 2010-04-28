@@ -13,5 +13,10 @@ module Validatable
     def message(instance)
       super || "is reserved"
     end
+    
+    def i18n
+      super || "#{i18n_prefix}.exclusion"
+    end
+    
   end
 end

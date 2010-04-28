@@ -25,4 +25,12 @@ require 'validatable/validations/validates_associated'
 
 module Validatable
   Version = '1.8.3'
+  
+  def self.use_i18n=(i18n)
+    @i18n = i18n
+  end
+  
+  def self.use_i18n?
+    @i18n
+  end
 end

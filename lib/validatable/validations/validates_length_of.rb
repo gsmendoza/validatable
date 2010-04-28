@@ -6,6 +6,10 @@ module Validatable
       super || "is invalid"
     end
     
+    def i18n
+      super || "#{i18n_prefix}.wrong_length"
+    end
+    
     def valid?(instance)
       valid = true
       value = instance.send(self.attribute)

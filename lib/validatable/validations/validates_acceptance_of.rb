@@ -10,5 +10,9 @@ module Validatable
     def message(instance)
       super || "must be accepted"
     end
+    
+    def i18n
+      super || "#{i18n_prefix}.accepted"
+    end
   end
 end

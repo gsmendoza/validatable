@@ -13,5 +13,9 @@ module Validatable
     def message(instance)
       super || "is not in the list"
     end
+    
+    def i18n
+      super || "#{i18n_prefix}inclusion"
+    end
   end
 end

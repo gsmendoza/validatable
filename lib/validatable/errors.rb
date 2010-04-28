@@ -26,7 +26,7 @@ module Validatable
     # * Returns an array of error messages, if more than one error is associated with the specified +attribute+.
     def on(attribute)
       return nil if errors[attribute.to_sym].nil?
-      errors[attribute.to_sym].size == 1 ? errors[attribute.to_sym].first : errors[attribute.to_sym]
+      error = errors[attribute.to_sym].size == 1 ? errors[attribute.to_sym].first : errors[attribute.to_sym]
     end
 
     # Rails 3 API for errors, always return array.
@@ -36,7 +36,7 @@ module Validatable
 
     def add(attribute, message) #:nodoc:
       errors[attribute.to_sym] = [] if errors[attribute.to_sym].nil?
-      errors[attribute.to_sym] << message
+      errors[attribute.to_sym] << (Validatable.use_i18n? ? i18n_message(attribute, message) : message)
     end
 
     def merge!(errors) #:nodoc:
@@ -66,6 +66,10 @@ module Validatable
       errors.values.flatten.size
     end
 
+    def i18n_message(attribute, msg)
+      I18n.t(msg, :attribute => humanize(attribute.to_s))
+    end
+    
     # call-seq: full_messages -> an_array_of_messages
     #
     # Returns an array containing the full list of error messages.
@@ -79,7 +83,7 @@ module Validatable
           if attribute.to_s == "base"
             full_messages << msg
           else
-            full_messages << humanize(attribute.to_s) + " " + msg
+            full_messages << (Validatable.use_i18n? ? msg : humanize(attribute.to_s) + " " + msg)
           end
         end
       end

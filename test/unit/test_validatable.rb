@@ -35,4 +35,14 @@ Expectations do
     end
     klass.validation_keys_include?("key")
   end
+  
+  expect true do
+    Validatable.use_i18n = true
+    Validatable.use_i18n?
+  end
+  
+  expect false do
+    Validatable.use_i18n = false
+    Validatable.use_i18n?
+  end
 end

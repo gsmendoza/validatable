@@ -1,5 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
+require 'i18n'
+
+I18n.backend.store_translations(:en, {:validatable => {:blank => "{{attribute}} must be specified"}})
+
 functional_tests do
 
   expect "can't be empty" do
@@ -516,4 +520,21 @@ functional_tests do
     instance.validate_only("presence_of/name")
     instance.errors.on(:address)
   end
+
+  test "should use the i18n key if i18n is enabled" do
+    Validatable.use_i18n = true
+    klass = Class.new do
+      include Validatable
+      validates_presence_of :name, :address
+      attr_accessor :name, :address
+    end
+    instance = klass.new
+    instance.valid?
+    assert_equal "Address must be specified", instance.errors.on(:address)
+    Validatable.use_i18n = false
+  end
+  
+  test "should return the default message if i18n is enabled but key isn't found" do
+  end
+  
 end
