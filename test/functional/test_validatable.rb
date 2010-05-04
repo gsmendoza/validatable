@@ -2,7 +2,12 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
 require 'i18n'
 
-I18n.backend.store_translations(:en, {:validatable => {:blank => "{{attribute}} must be specified"}})
+I18n.backend.store_translations(:en, {
+  :validatable => {
+    :blank => "{{attribute}} must be specified",
+    :attributes => {:user_address => {:street => "Strasse"}}
+  }
+})
 
 functional_tests do
 
@@ -533,5 +538,21 @@ functional_tests do
     assert_equal "Address must be specified", instance.errors.on(:address)
     Validatable.use_i18n = false
   end
+
+  test "should translate the attribute if i18n is enabled" do
+    Validatable.use_i18n = true
+    class UserAddress
+      include Validatable
+      validates_presence_of :street
+      attr_accessor :street
+    end
+    instance = UserAddress.new
+    instance.valid?
+    assert_equal "Strasse must be specified", instance.errors.on(:street)
+  end
   
+  def teardown
+    Validatable.use_i18n = false
+    
+  end
 end

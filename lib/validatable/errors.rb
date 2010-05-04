@@ -5,6 +5,10 @@ module Validatable
 
     def_delegators :errors, :clear, :each, :each_pair, :empty?, :length, :size
 
+    def initialize(owner = nil)
+      @owner = owner
+    end
+    
     # Returns true if the specified +attribute+ has errors associated with it.
     #
     #   class Company < ActiveRecord::Base
@@ -66,8 +70,22 @@ module Validatable
       errors.values.flatten.size
     end
 
+    def translate_attribute(attribute)
+      I18n.t("validatable.attributes.#{klazz_name}.#{attribute.to_s}", :default => humanize(attribute.to_s))
+    end
+    
+    def klazz_name
+      @owner.class.name.empty? ?
+        'generic' :
+        @owner.class.name.to_s.gsub(/::/, '/').
+          gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
+          gsub(/([a-z\d])([A-Z])/,'\1_\2').
+          tr("-", "_").
+          downcase
+    end
+    
     def i18n_message(attribute, msg)
-      I18n.t(msg, :attribute => humanize(attribute.to_s))
+      I18n.t(msg, :attribute => translate_attribute(attribute.to_s))
     end
     
     # call-seq: full_messages -> an_array_of_messages
