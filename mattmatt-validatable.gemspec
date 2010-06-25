@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jay Fields", "John Nunemaker"]
-  s.date = %q{2010-05-04}
+  s.date = %q{2010-06-25}
   s.description = %q{Validatable is a library for adding validations.}
   s.email = %q{meyer@paperplanes.de}
   s.extra_rdoc_files = [
@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.files = [
     "README.rdoc",
      "Rakefile",
-     "VERSION.yml",
      "lib/validatable.rb",
      "lib/validatable/child_validation.rb",
      "lib/validatable/errors.rb",
